@@ -54,6 +54,7 @@
         <xs:element ref="set_env" />
         <xs:element ref="unset_env" />
         <xs:element ref="node_container" />
+        <xs:element ref="load_composable_node" />
       </xs:choice>
       <xs:attribute name="version" use="required">
         <xs:annotation>
@@ -154,6 +155,7 @@
         <xs:element ref="set_env" />
         <xs:element ref="unset_env" />
         <xs:element ref="node_container" />
+        <xs:element ref="load_composable_node" />
       </xs:choice>
       <xs:attribute name="scoped" type="xs:boolean" use="optional">
         <xs:annotation>
@@ -374,7 +376,6 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-
     </xs:complexType>
   </xs:element>
 
@@ -391,6 +392,26 @@
       <xs:attribute name="value" type="xs:string" use="optional">
         <xs:annotation>
           <xs:documentation xml:lang="en"> Value or list of values to set the the ROS parameter with. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="load_composable_node">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"> Element to load a composable node outside of the launch file. </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"> Contains one or more composable nodes which are loaded outside of the launch file. </xs:documentation>
+        </xs:annotation>
+        <xs:element ref="composable_node" />
+      </xs:choice>
+      <xs:attribute name="target" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"> A path to a file containing one or more composable nodes which are loaded outside of the launch file. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
