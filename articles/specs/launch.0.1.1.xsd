@@ -68,6 +68,7 @@
         <xs:element ref="executable"/>
         <xs:element ref="include"/>
         <xs:element ref="group"/>
+        <xs:element ref="push-ros-namespace"/>
         <xs:element ref="set_env"/>
         <xs:element ref="unset_env"/>
       </xs:choice>
@@ -194,6 +195,7 @@
         <xs:element ref="executable"/>
         <xs:element ref="node"/>
         <xs:element ref="group"/>
+        <xs:element ref="push-ros-namespace"/>
         <xs:element ref="include"/>
         <xs:element ref="let"/>
         <xs:element ref="set_env"/>
@@ -219,6 +221,24 @@
           <xs:documentation xml:lang="en">
             A predicate to condition group launch i.e. do
             so unless the predicate evaluates to a truthy value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="push-ros-namespace">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Pushes a ROS namespace onto the stack and makes it current.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:attribute name="namespace" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            The namespace to be pushed onto the stack and made current.
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
@@ -477,7 +497,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:assert test="(@name and not(@from)) or (not(@name) and @from)"/>
+      <!-- <xs:assert test="(@name and not(@from)) or (not(@name) and @from)"/> -->
     </xs:complexType>
   </xs:element>
 
