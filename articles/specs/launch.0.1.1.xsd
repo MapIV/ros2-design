@@ -46,6 +46,7 @@
           </xs:complexType>
         </xs:element>
         <xs:element ref="let" />
+        <xs:element ref="set_parameter" />
         <xs:element ref="node" />
         <xs:element ref="executable" />
         <xs:element ref="include" />
@@ -83,6 +84,25 @@
       <xs:attribute name="value" type="xs:string" use="required">
         <xs:annotation>
           <xs:documentation xml:lang="en"> Value for the launch configuration variable. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="set_parameter">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"> Defines a launch configuration parameter. </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"> Name of the launch configuration parameter. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="value" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"> Value for the launch configuration parameter. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
