@@ -544,7 +544,11 @@
           <xs:documentation xml:lang="en"> Path to the parameters file to be loaded. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <!-- <xs:assert test="(@name and not(@from)) or (not(@name) and @from)"/> -->
+      <xs:attribute name="value-sep" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Separator character used to concatenate value from command line arguments to the node parameters</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
 
