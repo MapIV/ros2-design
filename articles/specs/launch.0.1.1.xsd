@@ -203,7 +203,7 @@
     <xs:complexType>
       <xs:attribute name="namespace" type="xs:string" use="required">
         <xs:annotation>
-          <xs:documentation xml:lang="en"> The namespace to be pushed onto the stack and made current. </xs:documentation>
+          <xs:documentation xml:lang="en"> The namespace will be pushed onto the stack and made current. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -283,13 +283,13 @@
 
   <xs:element name="node_container">
     <xs:annotation>
-      <xs:documentation xml:lang="en"> Node container represents a group of nodes which will be launched together. </xs:documentation>
+      <xs:documentation xml:lang="en"> Node container represents a group of nodes that will be launched together. </xs:documentation>
     </xs:annotation>
 
     <xs:complexType>
       <xs:choice minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation xml:lang="en"> Container for group of nodes which will be launched together. </xs:documentation>
+          <xs:documentation xml:lang="en"> Container for a group of nodes will be launched together. </xs:documentation>
         </xs:annotation>
         <xs:element ref="composable_node" />
       </xs:choice>
@@ -329,7 +329,7 @@
 
   <xs:element name="composable_node">
     <xs:annotation>
-      <xs:documentation xml:lang="en"> Node container represents a group of nodes which will be launched together. </xs:documentation>
+      <xs:documentation xml:lang="en"> Node container represents a group of nodes that will be launched together. </xs:documentation>
     </xs:annotation>
 
     <xs:complexType>
@@ -391,6 +391,11 @@
             <xs:enumeration value="screen">
               <xs:annotation>
                 <xs:documentation xml:lang="en"> ROS node output goes to stdout. </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="both">
+              <xs:annotation>
+                <xs:documentation xml:lang="en"> ROS node output goes to stdout and a log file. </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
           </xs:restriction>
@@ -493,6 +498,11 @@
             <xs:enumeration value="screen">
               <xs:annotation>
                 <xs:documentation xml:lang="en"> Executable output goes to stdout. </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="both">
+              <xs:annotation>
+                <xs:documentation xml:lang="en"> ROS node output goes to stdout and a log file. </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
           </xs:restriction>
@@ -600,6 +610,11 @@
           <xs:documentation xml:lang="en"> A name for the launched ROS node. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="respawn" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"> Should the node be respawned if it has died. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="ros_args" type="xs:string" use="optional">
         <xs:annotation>
           <xs:documentation xml:lang="en"> ROS-specific 'command-line' arguments for the ROS node. </xs:documentation>
@@ -617,7 +632,7 @@
       </xs:attribute>
       <xs:attribute name="launch-prefix" type="xs:string" use="optional">
         <xs:annotation>
-          <xs:documentation xml:lang="en"> A prefix for the ROS node command-line used for launch. </xs:documentation>
+          <xs:documentation xml:lang="en"> A prefix for the ROS node command line used for launch. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="output" use="optional">
@@ -634,6 +649,11 @@
             <xs:enumeration value="screen">
               <xs:annotation>
                 <xs:documentation xml:lang="en"> ROS node output goes to stdout. </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="both">
+              <xs:annotation>
+                <xs:documentation xml:lang="en"> ROS node output goes to stdout and a log file. </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
           </xs:restriction>
