@@ -56,6 +56,7 @@
         <xs:element ref="unset_env" />
         <xs:element ref="node_container" />
         <xs:element ref="load_composable_node" />
+        <xs:element ref="log" />
       </xs:choice>
       <xs:attribute name="version" use="required">
         <xs:annotation>
@@ -84,6 +85,20 @@
       <xs:attribute name="value" type="xs:string" use="required">
         <xs:annotation>
           <xs:documentation xml:lang="en"> Value for the launch configuration variable. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="log">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"> Output a message to the terminal. </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:attribute name="message" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation xml:lang="en"> The message will be printed to the terminal. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
